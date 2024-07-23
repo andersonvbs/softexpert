@@ -12,9 +12,9 @@ CREATE TABLE IF NOT EXISTS product_type (
 );
 
 -- -----------------------------------------------------
--- Table softexpert.product
+-- Table softexpert.products
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS product (
+CREATE TABLE IF NOT EXISTS products (
   id SERIAL PRIMARY KEY,
   product_type_id INTEGER NOT NULL,
   name VARCHAR(200) NOT NULL,

@@ -50,7 +50,7 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - .docker/postgresql/scheme.sql:/docker-entrypoint-initdb.d/scheme.sql
+      - .docker/postgresql/schema.sql:/docker-entrypoint-initdb.d/schema.sql
       - .docker/postgresql/data:/data/postgres
     ports:
       - "${FORWARD_DB_PORT:-5432}:5432"

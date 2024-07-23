@@ -27,6 +27,7 @@ switch ($routeInfo[0]) {
         break;
     case Dispatcher::FOUND:
         $handler = $routeInfo[1];
-        $handler();
+        $vars = $routeInfo[2];
+        $handler($vars);
         break;
 }

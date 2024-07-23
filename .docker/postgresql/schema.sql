@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS products (
   id SERIAL PRIMARY KEY,
   product_type_id INTEGER NOT NULL,
   name VARCHAR(200) NOT NULL,
-  value NUMERIC(8,2) NOT NULL,
+  price NUMERIC(8,2) NOT NULL,
   created_at TIMESTAMP NOT NULL,
   updated_at TIMESTAMP,
   CONSTRAINT fk_product_product_type

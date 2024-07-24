@@ -50,7 +50,7 @@ const ProductList = () => {
             {products.map((product) => (
               <TableRow key={product.id}>
                 <TableCell>{product.name}</TableCell>
-                <TableCell>{product.product_type_name}</TableCell>
+                <TableCell>{product.productTypeName}</TableCell>
                 <TableCell>${product.price}</TableCell>
                 <TableCell>
                   <Button variant="outlined" color="error" onClick={() => handleDelete(product.id)}>

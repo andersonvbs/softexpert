@@ -19,6 +19,9 @@ const App = () => {
             <Button color="inherit" component={Link} to="/">
               Home
             </Button>
+            <Button color="inherit" component={Link} to="/register-sale">
+              Register Sale
+            </Button>
             <Button color="inherit" component={Link} to="/products">
               Products
             </Button>
@@ -34,6 +37,7 @@ const App = () => {
             <Route path="/register-product-type" element={<ProductTypeRegistration />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/product-types" element={<ProductTypeList />} />
+            <Route path="/register-sale" element={<SalesRegistration />} />
           </Routes>
         </Box>
       </Container>

@@ -23,18 +23,18 @@ class SaleService
         $saleProducts = [];
 
         foreach ($products as $product) {
-            $productValue = $product['value'];
+            $productPrice = $product['price'];
             $quantity = $product['quantity'];
-            $taxPercentage = $product['tax_percentage'];
-            $taxValue = $productValue * ($taxPercentage / 100);
+            $taxPercentage = $product['taxPercentage'];
+            $taxValue = $productPrice * ($taxPercentage / 100);
 
-            $totalValue += $productValue * $quantity;
+            $totalValue += $productPrice * $quantity;
             $totalTax += $taxValue * $quantity;
 
             $saleProducts[] = new SaleProduct(
                 $product['id'],
                 $quantity,
-                $productValue,
+                $productPrice,
                 $taxValue
             );
         }

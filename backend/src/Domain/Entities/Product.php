@@ -11,8 +11,10 @@ class Product
     public $price;
     public $createdAt;
     public $updatedAt;
+    public $productTypeName;
+    public $taxPercentage;
 
-    public function __construct($id, $name, $productTypeId, $price, $createdAt, $updatedAt = null)
+    public function __construct($id, $name, $productTypeId, $price, $createdAt, $updatedAt = null, $productTypeName = null, $taxPercentage = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -20,5 +22,8 @@ class Product
         $this->price = $price;
         $this->createdAt = $createdAt;
         $this->updatedAt = $updatedAt;
+        $this->productTypeName = $productTypeName;
+        $this->productTypeName = $productTypeName;
+        $this->taxPercentage = $taxPercentage;
     }
 }

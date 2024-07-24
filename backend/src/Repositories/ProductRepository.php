@@ -19,7 +19,7 @@ class ProductRepository
 
     public function findAll(): array
     {
-        $stmt = $this->pdo->query('SELECT * FROM softexpert.products');
+        $stmt = $this->pdo->query('SELECT p.*, pt.name as product_type_name, pt.tax_percentage FROM softexpert.products p JOIN softexpert.product_type pt ON p.product_type_id = pt.id');
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $products = [];
@@ -30,7 +30,9 @@ class ProductRepository
                 $result['product_type_id'],
                 $result['price'],
                 $result['created_at'],
-                $result['updated_at']
+                $result['updated_at'],
+                $result['product_type_name'],
+                $result['tax_percentage'],
             );
         }
         return $products;

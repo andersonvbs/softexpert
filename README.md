@@ -52,11 +52,6 @@ Agora acesse utilizando um navegador.
     <li><a href="https://www.docker.com/">Docker</a></li>
 </ul>
 
-
-## 📜 Licença <a name = "license"></a>
-
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
 ## Autor <a name = "autor"></a>
 
 <a href="https://github.com/andersonvbs" target="_blank">Anderson Borges</a>

@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ProductRegistration from './components/ProductRegistration';
 import ProductTypeRegistration from './components/ProductTypeRegistration';
+import ProductList from './components/ProductList';
+import ProductTypeList from './components/ProductTypeList';
+import SalesRegistration from './components/SalesRegistration';
 import { Container, AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 
 const App = () => {
@@ -16,11 +19,11 @@ const App = () => {
             <Button color="inherit" component={Link} to="/">
               Home
             </Button>
-            <Button color="inherit" component={Link} to="/register-product">
-              Register Product
+            <Button color="inherit" component={Link} to="/products">
+              Products
             </Button>
-            <Button color="inherit" component={Link} to="/register-product-type">
-              Register Product Type
+            <Button color="inherit" component={Link} to="/product-types">
+              Product Types
             </Button>
           </Toolbar>
         </AppBar>
@@ -29,6 +32,8 @@ const App = () => {
             <Route path="/" element={<Typography variant="h5">Welcome to the Product Management System</Typography>} />
             <Route path="/register-product" element={<ProductRegistration />} />
             <Route path="/register-product-type" element={<ProductTypeRegistration />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/product-types" element={<ProductTypeList />} />
           </Routes>
         </Box>
       </Container>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const ProductRegistration = () => {
   const [name, setName] = useState('');
   const [productTypeId, setProductTypeId] = useState('');
   const [price, setPrice] = useState('');
   const [productTypes, setProductTypes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductTypes = async () => {
@@ -28,6 +30,7 @@ const ProductRegistration = () => {
       setProductTypeId('');
       setPrice('');
       alert('Product registered successfully!');
+      navigate('/products'); // Redirect to the product list
     } catch (error) {
       console.error('Error registering product', error);
       alert('Error registering product');

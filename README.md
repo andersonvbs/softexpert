@@ -45,12 +45,6 @@ Agora acesse utilizando um navegador.
   http://localhost
 ```
 
-
-## Frontend <a name = "front"></a>
-
-No diretório chamado frontend, econtra-se o código desenvolvido, o build para executar o projeto diretamente pelo navegador
-e um arquivo Readme explicando os passos para executar o projeto.
-
 ## Links <a name = "links"></a>
 <ul>
     <li><a href="https://react.dev/">React</a></li>

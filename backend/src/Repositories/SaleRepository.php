@@ -18,6 +18,24 @@ class SaleRepository
         $this->pdo = $db->getConnection();
     }
 
+    public function findAll(): array
+    {
+        $stmt = $this->pdo->query('SELECT * FROM softexpert.sales');
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $sales = [];
+        foreach ($results as $result) {
+            $sales[] = new Sale(
+                $result['id'],
+                $result['created_at'],
+                (float)$result['total_value'],
+                (float)$result['total_tax']
+            );
+        }
+        
+        return $sales;
+    }
+
     public function create(Sale $sale): Sale
     {
         $this->pdo->beginTransaction();

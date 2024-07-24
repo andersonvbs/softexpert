@@ -16,6 +16,12 @@ class SaleController
         header('Access-Control-Allow-Origin: *');
     }
 
+    public function getSales()
+    {
+        $sales = $this->saleService->getSales();
+        echo json_encode($sales);
+    }
+
     public function createSale()
     {
         $input = json_decode(file_get_contents('php://input'), true);

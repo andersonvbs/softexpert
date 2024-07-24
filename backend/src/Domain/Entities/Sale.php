@@ -11,7 +11,7 @@ class Sale
     public $totalTax;
     public $products;
 
-    public function __construct($id, $createdAt, $totalValue, $totalTax, $products)
+    public function __construct($id, $createdAt, $totalValue, $totalTax, $products = [])
     {
         $this->id = $id;
         $this->createdAt = $createdAt;

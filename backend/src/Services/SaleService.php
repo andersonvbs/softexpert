@@ -16,6 +16,11 @@ class SaleService
         $this->saleRepository = $saleRepository;
     }
 
+    public function getSales(): array
+    {
+        return $this->saleRepository->findAll();
+    }
+
     public function createSale($products): Sale
     {
         $totalValue = 0;

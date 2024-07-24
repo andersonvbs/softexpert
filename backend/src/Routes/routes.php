@@ -52,6 +52,10 @@ return function (RouteCollector $router) {
     });
 
     /** Sales route */
+    $router->addRoute('GET', '/sales', function() use ($saleController) {
+        $saleController->getSales();
+    });
+
     $router->addRoute('POST', '/sales', function() use ($saleController) {
         $saleController->createSale();
     });

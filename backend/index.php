@@ -10,6 +10,14 @@ $dispatcher = FastRoute\simpleDispatcher($routes);
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 
+if ($httpMethod === 'OPTIONS') {
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Cache-Control');
+    exit(0);
+}
+
 // Strip query string (?foo=bar) and decode URI
 $uri = parse_url($uri, PHP_URL_PATH);
 $uri = rawurldecode($uri);

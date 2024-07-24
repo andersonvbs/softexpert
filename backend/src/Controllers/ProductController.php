@@ -12,12 +12,13 @@ class ProductController
     public function __construct(ProductService $productService)
     {
         $this->productService = $productService;
+        // header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
     }
 
     public function getProducts()
     {
         $products = $this->productService->getProducts();
-        header('Content-Type: application/json');
         echo json_encode($products);
     }
 
@@ -44,7 +45,7 @@ class ProductController
         }
 
         $product = $this->productService->createProduct($input['name'], $input['product_type_id'], $input['price']);
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
         echo json_encode($product);
     }
 

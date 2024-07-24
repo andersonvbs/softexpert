@@ -12,12 +12,14 @@ class ProductTypeController
     public function __construct(ProductTypeService $productTypeService)
     {
         $this->productTypeService = $productTypeService;
+        // header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
     }
 
     public function getProductTypes()
     {
         $products = $this->productTypeService->getProductTypes();
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
         echo json_encode($products);
     }
 
@@ -32,7 +34,7 @@ class ProductTypeController
         }
 
         $product = $this->productTypeService->createProductType($input['name'], $input['tax_percentage']);
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
         echo json_encode($product);
     }
 

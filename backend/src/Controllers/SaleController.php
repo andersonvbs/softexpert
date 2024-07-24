@@ -12,6 +12,8 @@ class SaleController
     public function __construct(SaleService $saleService)
     {
         $this->saleService = $saleService;
+        // header('Content-Type: application/json');
+        header('Access-Control-Allow-Origin: *');
     }
 
     public function createSale()
@@ -24,7 +26,7 @@ class SaleController
         }
 
         $sale = $this->saleService->createSale($input['products']);
-        header('Content-Type: application/json');
+        // header('Content-Type: application/json');
         echo json_encode($sale);
     }
 }

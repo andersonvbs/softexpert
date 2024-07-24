@@ -40,6 +40,11 @@ Após iniciar o servidor, verifique se a pasta `node_modules` foi criada dentro 
   npm install
 ```
 
+Após a instalação, reinicie os containers com o comando:
+```
+  docker compose --env-file backend/.env down && docker compose --env-file backend/.env up -d --build
+```
+
 Agora acesse utilizando um navegador.
 ```
   http://localhost

@@ -25,13 +25,13 @@ class ProductTypeController
     {
         $input = json_decode(file_get_contents('php://input'), true);
 
-        if (!isset($input['name'])) {
+        if (!isset($input['name']) || !isset($input['tax_percentage'])) {
             http_response_code(400);
-            echo json_encode(['error' => 'Product type name is required']);
+            echo json_encode(['error' => 'Product type name and tax percentage are required']);
             return;
         }
 
-        $product = $this->productTypeService->createProductType($input['name']);
+        $product = $this->productTypeService->createProductType($input['name'], $input['tax_percentage']);
         header('Content-Type: application/json');
         echo json_encode($product);
     }

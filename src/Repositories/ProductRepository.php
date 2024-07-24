@@ -19,7 +19,7 @@ class ProductRepository
 
     public function findAll(): array
     {
-        $stmt = $this->pdo->query('SELECT * FROM products');
+        $stmt = $this->pdo->query('SELECT * FROM softexpert.products');
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         $products = [];
@@ -38,7 +38,7 @@ class ProductRepository
 
     public function create(Product $product): Product
     {
-        $stmt = $this->pdo->prepare('INSERT INTO products (name, product_type_id, price, created_at, updated_at) VALUES (:name, :product_type_id, :price, :created_at, :updated_at) RETURNING id');
+        $stmt = $this->pdo->prepare('INSERT INTO softexpert.products (name, product_type_id, price, created_at, updated_at) VALUES (:name, :product_type_id, :price, :created_at, :updated_at) RETURNING id');
         $stmt->execute([
             ':name' => $product->name,
             ':product_type_id' => $product->productTypeId,
@@ -53,7 +53,7 @@ class ProductRepository
 
     public function delete($id): bool
     {
-        $stmt = $this->pdo->prepare('DELETE FROM products WHERE id = :id');
+        $stmt = $this->pdo->prepare('DELETE FROM softexpert.products WHERE id = :id');
         $stmt->execute([':id' => $id]);
 
         return $stmt->rowCount() > 0;

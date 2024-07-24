@@ -20,13 +20,13 @@ class ProductTypeService
         return $this->productTypeRepository->findAll();
     }
 
-    public function createProductType($name): ProductType
+    public function createProductType($name, $taxPercentage): ProductType
     {
         $createdAt = date('Y-m-d H:i:s');
         $updatedAt = $createdAt;
-        $product = new ProductType(null, $name, $createdAt, $updatedAt);
+        $productType = new ProductType(null, $name, $taxPercentage, $createdAt, $updatedAt);
 
-        return $this->productTypeRepository->create($product);
+        return $this->productTypeRepository->create($productType);
     }
 
     public function deleteProductType($id): bool

@@ -5,6 +5,7 @@ import ProductTypeRegistration from './components/ProductTypeRegistration';
 import ProductList from './components/ProductList';
 import ProductTypeList from './components/ProductTypeList';
 import SalesRegistration from './components/SalesRegistration';
+import SalesList from './components/SalesList';
 import { Container, AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 
 const App = () => {
@@ -19,8 +20,8 @@ const App = () => {
             <Button color="inherit" component={Link} to="/">
               Home
             </Button>
-            <Button color="inherit" component={Link} to="/register-sale">
-              Register Sale
+            <Button color="inherit" component={Link} to="/sales">
+              Sales List
             </Button>
             <Button color="inherit" component={Link} to="/products">
               Products
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/register-product-type" element={<ProductTypeRegistration />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/product-types" element={<ProductTypeList />} />
+            <Route path="/sales" element={<SalesList />} />
             <Route path="/register-sale" element={<SalesRegistration />} />
           </Routes>
         </Box>

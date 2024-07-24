@@ -3,10 +3,13 @@
 use FastRoute\RouteCollector;
 use App\Controllers\ProductController;
 use App\Controllers\ProductTypeController;
+use App\Controllers\SaleController;
 use App\Services\ProductService;
 use App\Services\ProductTypeService;
+use App\Services\SaleService;
 use App\Repositories\ProductRepository;
 use App\Repositories\ProductTypeRepository;
+use App\Repositories\SaleRepository;
 
 
 return function (RouteCollector $router) {
@@ -18,6 +21,11 @@ return function (RouteCollector $router) {
     $productTypeService = new ProductTypeService($productTypeRepository);
     $productTypeController = new ProductTypeController($productTypeService);
 
+    $saleRepository = new SaleRepository();
+    $saleService = new SaleService($saleRepository);
+    $saleController = new SaleController($saleService);
+
+    /** Product routes */
     $router->addRoute('GET', '/products', function() use ($productController) {
         $productController->getProducts();
     });
@@ -30,7 +38,7 @@ return function (RouteCollector $router) {
         $productController->deleteProduct($vars);
     });
 
-
+    /** Product type routes */
     $router->addRoute('GET', '/product_types', function() use ($productTypeController) {
         $productTypeController->getProductTypes();
     });
@@ -41,5 +49,10 @@ return function (RouteCollector $router) {
 
     $router->addRoute('DELETE', '/product_types/{id:\d+}', function($vars) use ($productTypeController) {
         $productTypeController->deleteProductType($vars);
+    });
+
+    /** Sales route */
+    $router->addRoute('POST', '/sales', function() use ($saleController) {
+        $saleController->createSale();
     });
 };
